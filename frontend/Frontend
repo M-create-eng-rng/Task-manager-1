@@ -1,0 +1,22 @@
+asyns funtion loadtask() {
+    const res = await fetch ('http:///localhost:5000/task');
+    const tasks = await res.jason();
+
+    const tasklist = document.getElementById( 'tasklist');
+    tasklist.innerHTML = ' ';
+
+    tasklist.foreach( task => {
+     const taskItem = document.createElement( 'div' );
+     taskItem.innerHTML =
+       <strong>${task.description}</strong>
+       <span>priority: ${ task.priority}</span>
+       <span>Due: ${task.duedate ? new Date (taskduedate). toLocaleDateString( ) : 'N/A' }</span>
+       <button on onClick= "deletetask"( '${task._id}')" >Delete</button>;
+       
+       tasklist.appendChild(taskItem);
+
+        
+    });}
+
+    const isoverdue = task.dueDate && new Date(task.dueDate) < new Date();
+    taskItem.clasName= isoverdue ?  'task overdue' : 'task';

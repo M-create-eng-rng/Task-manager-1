@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Manager</title>
+</head>
+<body>
+  <h1>Tasks</h1>
+
+
+
+  <form id="taskForm">
+    <input id="taskInput" placeholder="New task" required />
+    <button>Add</button>
+  </form>
+  <ul id="taskList"></ul>
+
+  <script>
+    const form = document.getElementById('taskForm');
+    const input = document.getElementById('taskInput');
+    const list = document.getElementById('taskList');
+
+    async function loadTasks() {
+      const res = await fetch('/tasks');
+      const tasks = await res.json();
+      list.innerHTML = tasks.map(t => `<li>${t.title}</li>`).join('');
+    }
+
+    form.onsubmit = async e => {
+      e.preventDefault();
+      await fetch('/tasks', {
+        method: 'POST',
+
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ title: input.value })
+      });
+      input.value = '';
+      loadTasks();
+    };
+
+    loadTasks();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Web Page</title>
+  <link rel="stylesheet" href="styles.css"> <!-- This line links the CSS -->
+</head>
+<body>
+  <h1>Hello, world!</h1>
+</body>
+</html>
+
+
+  <input type="date" id="dueDate" min="<?= date('Y-m-d') ?>" />
+
+  <select id="priority">
+    <option value="Low" >Low</option>
+    <option value="Medium" selected>Medium</option>
+    <option value="High">High</option>
+  </select>
+
+    <input type="date" id="dueDate"  />
+
+  <button type="submit">Add Task</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form id="taskForm">
+
+  <input type="text" id="description" placeholder="Task description" required />
+
+  <select id="priority">
+    <option value="Low">Low</option>
+    <option value="Medium" selected>Medium</option>
+    <option value="High">High</option>
+  </select>
+
+  <input type="date" id="dueDate" />
+
+  <button type="submit">Add Task</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="quoteBox" Class="quote-box"></div>
+
+asyns function loadquote() {
+  const res = await fetch (https://api.quotable.io/random');
+  constdata = await res.jason();
+  <document.getElementbyId( 'quoteBox').innerText = '"${data.content}" - ${data.author}';}
+
+
+  loadQuote();
+windows>Tasks
+
+
+</document.getElementbyId>
+
+
+
+
+
+
+<div id="quotebox" class="quote-box"></div>
+
+asyns function loadQuote (){
+  const res = await fetch( 'https://api.quotable.io/random');
+  const data = await res.json ();
+  document.getElementbyId( 'quoteBox').innerText = "${data.content}" - ${data.author};}
+
+  loadQuote();
